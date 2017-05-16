@@ -1,0 +1,32 @@
+WASEDA-IREVAL Data		2015.11.24 tetsuya@waseda.jp
+
+README-data
+	This file
+
+waseda.95topics.txt
+	Japanese topics (queries) and their IDs (95 pairs)
+
+INTENT2J.div2adhoc.qrels
+	Relevance assessment data for ad hoc search [3]
+	(Converted from INTENT-2 diversity relevance assessments)
+
+waseda-runlist
+	list of run files (4 runs)
+
+Run files:
+    MSINT-D-J-4B
+	A diversified search run by Microsoft for NTCIR-10 INTENT-2 [2].
+    MSINT-D-J-5B
+	Another diversified search run by Microsoft for NTCIR-10 INTENT-2 [2].
+    MSINT-D-J-R2
+	A diversified search run by Microsoft for NTCIR-9 INTENT [1].
+    BASELINE-D-J-1
+	A non-diversified baseline run.
+	Because we do not consider diversity in our experiments,
+	this run achieves the highest performance.
+
+References:
+
+[1] http://research.nii.ac.jp/ntcir/workshop/OnlineProceedings10/pdf/NTCIR/OVERVIEW/01-NTCIR10-OV-INTENT-SakaiT.pdf
+[2] http://research.nii.ac.jp/ntcir/workshop/OnlineProceedings10/pdf/NTCIR/INTENT/06-NTCIR10-INTENT-TsukudaK.pdf
+[3] http://www.f.waseda.jp/tetsuya/book.html

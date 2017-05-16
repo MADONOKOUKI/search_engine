@@ -1,0 +1,29 @@
+#!/bin/sh
+# from nev files, create a topic-by-run matrix for a specified evaluation measure
+
+if [ $# -lt 4 ]; then
+    echo "usage: `basename $0` <topicIDfile> <runlist> <nevsuffix> <evalmeasure>" >&2
+    echo " e.g.: `basename $0` INTENT2J.div2adhoc.qrels.tid waseda-runlist waseda.nev MSnDCG@1000" >&2
+    exit 1
+fi
+
+AWK="/usr/bin/env awk"
+
+TIDFILE=$1
+RUNLIST=$2
+NEVSUF=$3
+MEASURE=$4
+shift
+shift
+shift
+shift
+
+cat $TIDFILE | while read TID; do
+
+    cat $RUNLIST | while read RUN; do
+
+	cat $RUN.$NEVSUF | grep "^${TID} ${MEASURE}=" | $AWK '{print $NF}'
+
+    done | $AWK '{printf( "%.4f ", $0 )}END{ printf( "\n" )}'
+
+done | sed 's/ $//'
